@@ -1,0 +1,26 @@
+{
+  "name": "tp1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "index": "node src/index.js",
+    "EJ02": "node src/EJ02",
+    "EJ03": "node src/EJ03",
+    "EJ04": "node src/EJ04",
+    "EJ05": "node src/EJ05",
+    "EJ06": "node src/EJ06",
+    "EJ07": "node src/EJ07",
+    "EJ08": "node src/EJ08"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "cors": "^2.8.5",
+    "currency-map-country": "^1.0.12",
+    "express": "^4.19.2"
+  }
+}
