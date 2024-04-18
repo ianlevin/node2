@@ -1,12 +1,17 @@
 import express from "express"; // hacer npm i express
 import cors from "cors"; // hacer npm i cors
 import {PI, sumar, multiplicar, restar, dividir} from "./modules/matematica.js"
+import Alumno from "./models/alumno.js";
 
 const app = express();
 const port = 3000;
 
 app.use(cors()); 
 app.use(express.json()); 
+
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+})
 
 app.get('/', (req, res) => { 
     res.send('Ya estoy respondiendo!');
@@ -50,10 +55,6 @@ app.get('/matematica/dividir', (req, res) => {
     let resultado = dividir(req.query.n1, req.query.n2)
     res.send(`El resultado es ${resultado}`)
     res.status(200).send()
-})
-
-app.listen(port, () => {
-console.log(`Example app listening on port ${port}`)
 })
 
 app.get('/omdb/searchbypage', async (req, res) => {
@@ -118,3 +119,4 @@ app.delete('/alumnos', (req, res) => {
         res.status(400).send();
     }
 })
+
