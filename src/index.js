@@ -2,6 +2,7 @@ import express from "express"; // hacer npm i express
 import cors from "cors"; // hacer npm i cors
 import {PI, sumar, multiplicar, restar, dividir} from "./modules/matematica.js"
 import Alumno from "./models/alumno.js";
+import ValidacionesHelper from './modules/ValidacionesHepler.js'
 
 const app = express();
 const port = 3000;
@@ -34,7 +35,9 @@ app.get('/validarfecha/:ano/:mes/:dia', (req, res) => {
 })
 
 app.get('/matematica/sumar', (req, res) => { 
-    let resultado = sumar(req.query.n1, req.query.n2)
+    let n1 = getIntegrerOrDefault(req.query.n1) 
+    let n2 = getIntegrerOrDefault(req.query.n2)
+    let resultado = sumar(n1, n2)
     res.send(`El resultado es ${resultado}`)
     res.status(200).send()
 })
